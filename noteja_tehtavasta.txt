@@ -1,0 +1,79 @@
+
+
+Cmaken kanssa oli ongelmaa aluksi. Windows myös esti buildaamisen, kun käytettiin komentoa "cmake --build .". Koitin selvittää tätä tapahtumienvalvonnasta ja löytää virhe, joka koskee mingw:tä. Se löytyi: Applications and Services Logs → Microsoft → Windows → CodeIntegrity. Siellä luki virheen viestinä:
+
+Code Integrity determined that a process (\Device\HarddiskVolume3\Windows\System32\WindowsPowerShell\v1.0\powershell.exe) attempted to load \Device\HarddiskVolume3\Users\manes\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\mingw32-make.exe that did not meet the Enterprise signing level requirements or violated code integrity policy (Policy ID:{0283ac0f-fff1-49ae-ada1-8a933130cad6}).
+
+Chatgpt sanoi: "Windows estää siis mingw32-make.exe-ohjelman suorittamisen koodin eheyttä koskevan käytännön vuoksi. Kyse ei ole CMake-projektisi virheestä."
+
+
+
+Latasin winlibistä mingw uudelleen ja siirsin sen kansioon PS C:\msys64\mingw64>. sitten poistin projektikansiosta vanhan build-kansion ja loin uuden komennoilla:
+
+cmake -S . -B build -G "MinGW Makefiles" `
+  -DCMAKE_MAKE_PROGRAM=C:/msys64/mingw64/mingw64/bin/mingw32-make.exe `
+  -DCMAKE_C_COMPILER=C:/msys64/mingw64/mingw64/bin/gcc.exe `
+  -DCMAKE_CXX_COMPILER=C:/msys64/mingw64/mingw64/bin/g++.exe
+
+sitten sovelluksen pystyi buildaamaan tuosta build-kansiosta komennolla "cmake --build ."
+
+
+Käsittääkseni Windows oli jostain syystä estänyt aiemmin lataamani mingw, mikä selvisi, kun latasin sen vain uudelleen.
+
+
+
+
+
+
+
+
+
+
+
+nyt Windows estää suorituksen taas komennolle:
+.\TimeParserTest.exe
+
+Kirjotin powershelliin komennon: PS C:\Windows\system32> Get-WinEvent -FilterHashtable @{
+>>     LogName = 'Microsoft-Windows-CodeIntegrity/Operational'
+>>     Id = 3077
+>> } -MaxEvents 5 |
+>>     Format-List TimeCreated, Id, Message
+Tämä antoi logitietoja tapahtuneista virheistä, jotka sitten annoin chatgpt:lle.
+
+Chatgpt: "Tapahtuma osoittaa, että ohjelma ei täytä aktiivisen allekirjoitusvaatimuksen ehtoja tai rikkoo koodin eheyden käytäntöä. Uusi WinLibs-asennus ratkaisi siis Make-ohjelman käynnistämisen, mutta ei Windowsin käytäntöä, joka estää testiohjelman."
+
+Tässä kohtaa chatgpt ehdotti kahta vaihtoehtoa:
+1. Vaihtaa Windowsista linuxiin (:D):
+"Käytä WSL2:ta ja Linuxin GCC-kääntäjää testien rakentamiseen ja suorittamiseen Linux-ympäristössä. Näin sinun ei tarvitse suorittaa Windowsin estämää TimeParserTest.exe-tiedostoa. Tämä edellyttää, että kurssiprojektisi toimii Linuxissa."
+2: Ottaa Smart App Control kokonaan pois käytöstä.
+
+
+/////// /////// /////// ///////
+Windowsin popup error:
+"osa sovelluksesta ei ehkä toimi, koska emme voi vahvistaa, kuka julkaisi libwinpthread-1.dll"
+/////// /////// /////// ///////
+
+
+Chatgpt (kun pastetin sille muutaman sen antaman komennon tulokset):
+
+"Nyt syy on paljon selvempi: projektisi build-hakemisto käyttää edelleen WinLibs-kääntäjää ja sen mingw32-make.exe-tiedostoa, vaikka MSYS2:n UCRT64-kääntäjä toimii. Lisäksi Windows on estänyt myös TimeParserTest.exe-ohjelman suorittamisen.
+	Vaihdetaan projekti käyttämään MSYS2:n UCRT64-työkaluja. Tehdään se erilliseen build-hakemistoon, jotta vanhat asetukset säilyvät tallessa. Sen jälkeen kokeilemme staattista linkitystä. Tämä ei takaa, että Windows hyväksyy uuden ohjelman, mutta se on hyvä seuraava testi."
+
+-----------------------------------
+Täytyi vaihtaa build-hakemisto tuohon vanhaan. Komennolla:
+cmake -S . -B build-ucrt -G "MinGW Makefiles" `
+  -DCMAKE_C_COMPILER=C:/msys64/ucrt64/bin/gcc.exe `
+  -DCMAKE_CXX_COMPILER=C:/msys64/ucrt64/bin/g++.exe `
+  -DCMAKE_MAKE_PROGRAM=C:/msys64/ucrt64/bin/mingw32-make.exe `
+  -DCMAKE_EXE_LINKER_FLAGS="-static -static-libgcc -static-libstdc++"
+-----------------------------------
+Sitten taas kääntää ohjelma:
+cmake --build build-ucrt
+-----------------------------------
+Ja nyt .\TimeParserTest.exe toimii.
+
+
+
+
+
+Mutta nyt se ei taaskaan toimi. Otin Smart App Control -suojauksen pois.

@@ -1,0 +1,29 @@
+CMakeFiles/TimeParser.dir/TimeParser.cpp.obj: \
+ C:\Users\manes\shittia\RTOS_kurssi\4_Unit_testing\TimeParser.cpp \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/stdlib.h \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/cstdlib \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/x86_64-w64-mingw32/bits/c++config.h \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/pstl/pstl_config.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+ C:/msys64/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/limits.h \
+ C:/msys64/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/syslimits.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/limits.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/malloc.h \
+ C:/msys64/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/mm_malloc.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/errno.h \
+ C:/msys64/mingw64/mingw64/include/c++/16.1.0/bits/std_abs.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/ctype.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt_wctype.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/string.h \
+ C:/msys64/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:\Users\manes\shittia\RTOS_kurssi\4_Unit_testing\TimeParser.h

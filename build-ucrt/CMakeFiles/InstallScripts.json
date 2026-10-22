@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/manes/shittia/RTOS_kurssi/4_Unit_testing/build-ucrt/cmake_install.cmake",
+		"C:/Users/manes/shittia/RTOS_kurssi/4_Unit_testing/build-ucrt/googletest/cmake_install.cmake",
+		"C:/Users/manes/shittia/RTOS_kurssi/4_Unit_testing/build-ucrt/googletest/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
