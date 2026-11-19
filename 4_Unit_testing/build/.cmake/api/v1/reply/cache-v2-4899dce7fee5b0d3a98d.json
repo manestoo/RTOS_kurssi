@@ -1682,6 +1682,18 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Python",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding Python"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0/python3.13.exe][found components: Interpreter ][v3.13.14()]"
+		},
+		{
 			"name" : "INSTALL_GTEST",
 			"properties" : 
 			[
@@ -1775,19 +1787,43 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "_Python_EXECUTABLE-NOTFOUND"
+			"value" : "C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0/python3.13.exe"
 		},
 		{
-			"name" : "_Python_Interpreter_REASON_FAILURE",
+			"name" : "_Python_EXECUTABLE_DEBUG",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Interpreter reason failure"
+					"value" : "Path to a program."
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : ""
+			"value" : "_Python_EXECUTABLE_DEBUG-NOTFOUND"
+		},
+		{
+			"name" : "_Python_INTERPRETER_PROPERTIES",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Python Properties"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "Python;3;13;14;64;32;<none>;cp313-win_amd64;;C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0/Lib;C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0/Lib;C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0/Lib/site-packages;C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0/Lib/site-packages"
+		},
+		{
+			"name" : "_Python_INTERPRETER_SIGNATURE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "a8a81102ba6303ec32da24df317624c5"
 		},
 		{
 			"name" : "_Python_NumPy_REASON_FAILURE",

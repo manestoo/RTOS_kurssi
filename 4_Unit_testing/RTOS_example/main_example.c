@@ -28,45 +28,99 @@ int main(void)
 	} 
 
 	// Wait for everything to initialize and threads to start
-	k_sleep(K_SECONDS(1));
+	k_msleep(100);
 	// Sanity check
-	// printk("Started serial led example\n");
+	printk("Started serial led example\n");
 
-	// UART helpers
-	char c=0;
-	int cnt = 0;
-	char buffer[20] = "\0";
-
-	// superloop
+	char rc=0;
+	char uart_msg[20];
+	int uart_msg_cnt=0;
+	memset(uart_msg,0,20);			
 	while (true) {
+		// Ask UART if data available
+		while (uart_poll_in(uart_dev,&rc) == 0) {
+			// Add characters into buffer until X is received 
+			if (rc != 'X') {
+				uart_msg[uart_msg_cnt] = rc;
+				uart_msg_cnt++;
+			} else {
+				// Send response to UART
+				// X has been removed, so we need to add it to the end
+				// printk("-1X"); example return error
 
-		if (uart_poll_in(uart_dev,&c) == 0) {
-			if (c == '\n' || c == '\r') {
-				// skip empty lines (e.g. the \n of a \r\n line ending)
-				if (cnt == 0) {
-					continue;
-				}
-				// printk(buffer);
-				// here you call parser
-				int ret = time_parse(buffer);
-				// check parser return value, negative value is an error
-				if (ret >= 0) {
-					// send signal / message to mailbox
-				} 
-				// clear buffer and counter
-				cnt = 0;
-				memset(buffer,0,20);
+				// Example check with time_parse
+				//time_parse(uart_msg);
+				int timer_delay = time_parse(uart_msg); // 000120 -> 80
+				printk("%dX", timer_delay); //palautetaan robotille siis parsetettu lukema ja perään X
+
+				// Clear UART message buffer
+				uart_msg_cnt = 0;
+				memset(uart_msg,0,20);			
 			}
 		}
+		k_msleep(10);
 	}
 	return 0;
 }
 
 int time_parse(char *time) {
-	int ret = -1;
 
-	// replace this function with your own code from test project!!
-	//tänne kopsataan timeparse.cpp:stä
+	// how many seconds, default returns error
+	int seconds;
+
+	// TODO: Check that string is not null
+	if (time == NULL){
+		return TIME_VALUE_ERROR;
+	} else if (strlen(time) != 6){
+		return TIME_LEN_ERROR;
+	}
+
+	for (int i = 0; i < 6; i++){
+		if (isdigit(time[i]) == false){
+			return TIME_VALUE_TYPE_ERROR;
+		}
+	}
+
+	// Parse values from time string
+	// For example: 124033 -> 12hour 40min 33sec
+	int values[3];
+	values[2] = atoi(time+4); // seconds
+	time[4] = 0;
+	values[1] = atoi(time+2); // minutes
+	time[2] = 0;
+	values[0] = atoi(time); // hours
+	// Now you have:
+	// values[0] hour
+	// values[1] minute
+	// values[2] second
+
+	// TODO: Add boundary check time values: below zero or above limit not allowed
+	// limits are 59 for minutes, 23 for hours, etc
+
+	//HUOM: jos syötössä olisi negatviinen arvo (eli miinus-merkki) isdigit()-funktio käsittelee tämän virheen jo
+	// eli tässä alapuolella oikeastaan turhaan tarkistetaan voiko value olla <0
+	if (values[0] > 23) {
+		seconds = TIME_VALUE_ERROR;
+	} else if (values[0] < 0) {
+		seconds = TIME_VALUE_ERROR;
+	} else if (values[1] > 59) {
+		seconds = TIME_VALUE_ERROR;
+	} else if (values[1] < 0) {
+		seconds = TIME_VALUE_ERROR;
+	} else if (values[2] > 59) {
+		seconds = TIME_VALUE_ERROR;
+	} else if (values[2] < 0) {
+		seconds = TIME_VALUE_ERROR;
+	} else {
+		seconds = values[2] + values[1]*60 + values[0]*60*60; 
+	}
 	
-	return ret;
+	// TODO: Add more features to get more points
+	// HUOM:  isdigit()-feature on rivillä 19 ja merkkijonon pituus -feature rivillä 15
+	if (seconds == 0){
+		return TIME_VALUE_ERROR; //0 ei saa toteuttaa ajastinkeskeytystä
+	}
+	
+	
+	return seconds;	//seconds antaa failure
 }

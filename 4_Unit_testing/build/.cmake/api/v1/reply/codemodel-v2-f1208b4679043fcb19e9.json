@@ -2,7 +2,23 @@
 	"configurations" : 
 	[
 		{
-			"abstractTargets" : [],
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "Python::Interpreter::@f95b5c00bd49b3b4698d",
+					"jsonFile" : "target-Python__Interpreter-Debug-adb5c358c6e324c9e636.json",
+					"name" : "Python::Interpreter",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Python::InterpreterMultiConfig::@f95b5c00bd49b3b4698d",
+					"jsonFile" : "target-Python__InterpreterMultiConfig-Debug-48ae0b02fb090245f76e.json",
+					"name" : "Python::InterpreterMultiConfig",
+					"projectIndex" : 2
+				}
+			],
 			"directories" : 
 			[
 				{
@@ -42,6 +58,11 @@
 					"source" : "googletest"
 				},
 				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
 					"build" : "googletest/googletest",
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-googletest.googletest-Debug-beb58a5d49e6f1726304.json",
@@ -91,6 +112,11 @@
 					"parentIndex" : 0
 				},
 				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
 					"directoryIndexes" : 
 					[
 						2

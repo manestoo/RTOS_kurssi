@@ -19,17 +19,17 @@
 	ProcessorCacheSize="-1"
 	NumberOfLogicalCPU="8"
 	NumberOfPhysicalCPU="8"
-	TotalVirtualMemory="2176"
+	TotalVirtualMemory="3136"
 	TotalPhysicalMemory="16015"
 	LogicalProcessorsPerPhysical="1"
 	ProcessorClockFrequency="2100.000000"
 	>
 	<Testing>
-		<StartDateTime>Oct 23 03:38 Suomen kes[NON-UTF-8-BYTE-0xE4]aika</StartDateTime>
-		<StartTestTime>1792715882</StartTestTime>
+		<StartDateTime>Nov 19 16:04 Suomen normaaliaika</StartDateTime>
+		<StartTestTime>1795097084</StartTestTime>
 		<TestList/>
-		<EndDateTime>Oct 23 03:38 Suomen kes[NON-UTF-8-BYTE-0xE4]aika</EndDateTime>
-		<EndTestTime>1792715882</EndTestTime>
+		<EndDateTime>Nov 19 16:04 Suomen normaaliaika</EndDateTime>
+		<EndTestTime>1795097084</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
