@@ -1,0 +1,7 @@
+default: RTOS_robot
+build_dir: C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build
+domains:
+  - name: RTOS_robot
+    build_dir: C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/RTOS_robot
+flash_order:
+  - RTOS_robot

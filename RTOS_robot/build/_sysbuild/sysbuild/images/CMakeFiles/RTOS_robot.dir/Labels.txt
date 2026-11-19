@@ -1,0 +1,13 @@
+# Target labels
+ RTOS_robot
+# Source files and their labels
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/CMakeFiles/RTOS_robot
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/CMakeFiles/RTOS_robot.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/CMakeFiles/RTOS_robot-complete.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-build.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-configure.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-download.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-install.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-mkdir.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-patch.rule
+C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-update.rule

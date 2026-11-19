@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/CMakeFiles/RTOS_robot"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/CMakeFiles/RTOS_robot.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/CMakeFiles/RTOS_robot-complete.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-build.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-configure.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-download.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-install.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-patch.rule"
+		},
+		{
+			"file" : "C:/Users/manes/shittia/RTOS_kurssi/RTOS_robot/build/_sysbuild/sysbuild/images/RTOS_robot-prefix/src/RTOS_robot-stamp/RTOS_robot-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"RTOS_robot"
+		],
+		"name" : "RTOS_robot"
+	}
+}
